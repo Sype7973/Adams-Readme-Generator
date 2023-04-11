@@ -1,7 +1,8 @@
 // call to fs and Inquirier
-
+const generateMarkdown = require('./GenerateMarkdown.js');
 const fs = require('fs');
 const inquirer = require('inquirer');
+const { title } = require('process');
 
 // TODO: Create an array of questions for user input
 const questions = ([
@@ -42,7 +43,14 @@ const questions = ([
         choices: ['MIT', 'Apache', 'GPL', 'BSD', 'None'],
     },  
 ]);
-
+console.log(title);
+console.log(description);
+console.log(installation);
+console.log(usage);
+console.log(contribution);
+console.log(test);
+console.log(license);
+// Function call to initialize app
 function init() {
     inquirer.prompt(questions)
       .then((answers) => {
@@ -59,4 +67,4 @@ function init() {
   
 init();
 
-// Function call to initialize app
+
