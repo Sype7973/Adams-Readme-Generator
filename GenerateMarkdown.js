@@ -1,5 +1,3 @@
-
-
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -33,12 +31,17 @@ function renderLicenseSection(license) {
     return '';
   }
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+function generateMarkdown({ title, license, description, installation, usage, contribution, tests }) {
+  // Get the license badge, link, and section based on which license is passed in
+  const licenseBadge = renderLicenseBadge(license);
+  const licenseLink = renderLicenseLink(license);
+  const licenseSection = renderLicenseSection(license);
 
+  return `# ${title}
+  ${licenseBadge}
   ## Description
   
-  ${data.description}
+  ${description}
   
   ## Table of Contents (Optional)
   
@@ -47,15 +50,15 @@ function generateMarkdown(data) {
   - [Installation](#installation)
   - [Usage](#usage)
   - [Credits](#credits)
-  - [License](#license)
+  ${licenseLink}
   
   ## Installation
   
-  ${data.installation}
+  ${installation}
   
   ## Usage
   
-  ${data.usage}
+  ${usage}
   
   To add a screenshot, create an assets/images folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
   
@@ -71,12 +74,11 @@ function generateMarkdown(data) {
   
   If you followed tutorials, include links to those here as well.
   
-  ## License
-  
-  ${data.license}
+  ${licenseSection}
+
 
   ---
-  
+
   🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
   
   ## Badges
@@ -91,14 +93,11 @@ function generateMarkdown(data) {
   
   ## Contribution
   
-  ${data.contribution}
+  ${contribution}
 
   ## Tests
   
-${data.tests}`;
+  ${tests}`;
 }
 
 module.exports = generateMarkdown;
-module.exports = renderLicenseBadge;
-module.exports = renderLicenseLink;
-module.exports = renderLicenseSection;
