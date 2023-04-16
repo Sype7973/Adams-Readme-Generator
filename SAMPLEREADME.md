@@ -1,57 +1,8 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {
-    if (license !== 'None') {
-        return `![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`;
-    }
-    return '';
-}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
-    if (license !== 'None') {
-        return (
-            `\n* [License](#license)\n`
-        );
-    }
-    return '';
-}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-    if (license !== 'None') {
-      return (
-        `## License
-        
-        This project is licensed under the ${license} license.`
-      );
-    }
-    return '';
-  }
-// TODO: Create a function to generate markdown for README
-function generateMarkdown({ 
-  title, 
-  license, 
-  description, 
-  installation, 
-  usage, 
-  contribution, 
-  test, 
-  github, 
-  email 
-}) {
-  // Get the license badge, link, and section based on which license is passed in
-  const licenseBadge = renderLicenseBadge(license);
-  const licenseLink = renderLicenseLink(license);
-  const licenseSection = renderLicenseSection(license);
-
-  return `# ${title}
-  ${licenseBadge}
+# Sample Readme Generator
+  ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
   ## Description
   
-  ${description}
+  My application is a readme.md generator that takes a user's input and pre-populates a preformatted Readme.md file. My motivation for this project was to use inquirer and node.js to create an application that only uses the terminal command
   
   ## Table of Contents (Optional)
   
@@ -60,15 +11,17 @@ function generateMarkdown({
   - [Installation](#installation)
   - [Usage](#usage)
   - [Credits](#credits)
-  - ${licenseLink}
+  - 
+* [License](#license)
+
   
   ## Installation
   
-  ${installation}
+  You can start using my readme generator by first installing my repo and ensuring you have node.js and the ability to install inquirier 8.2.4
   
   ## Usage
   
-  ${usage}
+  You can use my application by opening up an integrated terminal from the index.js page and running 'node index.js' you will then be asked a few questions to fill out which will be the text placed into your pre-formatted readme.md file
   
   To add a screenshot, create an assets/images folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
   
@@ -84,7 +37,9 @@ function generateMarkdown({
   
   If you followed tutorials, include links to those here as well.
   
-  ${licenseSection}
+  ## License
+        
+        This project is licensed under the MIT license.
 
 
   ---
@@ -103,20 +58,17 @@ function generateMarkdown({
   
   ## Contribution
   
-  ${contribution}
+  No one else contributed to this project
 
   ## Tests
   
-  ${test}
+  no tests were run on this project
   
   
   ## Questions
 
   For any other information, You can reach the developers on the below contact information:
 
-  Github Profile: ${github}
+  Github Profile: Sype7973
 
-  Email: ${email} `;
-}
-
-module.exports = generateMarkdown;
+  Email: adam.day7973@gmail.com 
